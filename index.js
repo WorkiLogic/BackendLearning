@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
-    store: new FileStore(),
+    store: new FileStore({ path: path.join(__dirname, 'sessions') }),
     secret: secretKey,
     resave: false,
     saveUninitialized: false,
